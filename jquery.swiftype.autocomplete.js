@@ -107,15 +107,19 @@
       $this.showList = function() {
         if (handleFunctionParam(config.disableAutocomplete) === false) {
           $listContainer.show();
+          $(window).trigger('show.st.autocomplete');
         }
       };
 
-
       $this.hideList = function(sync) {
-        if (sync) {
+        hideAndEmitEvent = function() {
           $listContainer.hide();
+          $(window).trigger('hide.st.autocomplete');
+        };
+        if (sync) {
+          hideAndEmitEvent();
         } else {
-          setTimeout(function() { $listContainer.hide(); }, 10);
+          setTimeout(function() { hideAndEmitEvent(); }, 10);
         }
       };
 
