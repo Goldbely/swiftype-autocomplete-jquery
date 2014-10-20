@@ -107,7 +107,7 @@
       $this.showList = function() {
         if (handleFunctionParam(config.disableAutocomplete) === false) {
           $listContainer.show();
-          $(window).trigger('show.st.autcomplete');
+          $(window).trigger('show.st.autocomplete');
         }
       };
 
