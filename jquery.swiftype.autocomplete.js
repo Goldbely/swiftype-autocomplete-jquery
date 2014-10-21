@@ -329,6 +329,7 @@
       } else {
         $this.addEmpty(norm);
         $this.data('swiftype-list').empty();
+        $this.trigger('processed.st.autocomplete');
         $this.hideList();
         return;
       }
@@ -357,9 +358,11 @@
       if (term === $this.lastValue) {
         return;
       }
+      $this.trigger('processing.st.autocomplete');
       $this.lastValue = term;
       if ($.trim(term) === '') {
         $this.data('swiftype-list').empty()
+        $this.trigger('processed.st.autocomplete');
         $this.hideList();
         return;
       }
@@ -385,6 +388,7 @@
           $this.showList();
         }
       }
+      $this.trigger('processed.st.autocomplete');
     };
 
   var defaultResultRenderFunction = function(ctx, results) {
