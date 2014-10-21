@@ -279,7 +279,7 @@
           $this.hideList();
         }
       });
-      $this.blur(function () {
+      $this.on(config.closeAutocompleteEvent, function () {
         if (mouseDown) {
           blurWait = true;
         } else {
@@ -558,7 +558,8 @@
     typingDelay: 80,
     disableAutocomplete: false,
     autocompleteContainingElement: 'body',
-    widgetContainerClass: 'swiftype-widget'
+    widgetContainerClass: 'swiftype-widget',
+    closeAutocompleteEvent: 'blur'
   };
 
 })(jQuery);
